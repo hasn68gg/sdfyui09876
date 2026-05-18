@@ -18,7 +18,7 @@ app.get("*", (_, res) => {
 const port = Number(process.env.PORT || 3000);
 
 if (Number.isNaN(port) || port <= 0) {
-  throw new Error(Invalid PORT: ${process.env.PORT});
+  throw new Error(`Invalid PORT: ${process.env.PORT}`);
 }
 
 app.listen(port, (err?: Error) => {
