@@ -1,16 +1,17 @@
 import path from "path";
 import { fileURLToPath } from "url";
+import express from "express";
 
 import app from "./app";
 import { logger } from "./lib/logger";
-import express from "express";
 
 const __filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-// Serve frontend files
+// Serve frontend static files
 app.use(express.static(path.join(__dirname, "../../client/dist")));
 
+// Handle React routes
 app.get("*", (_, res) => {
   res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
 });
