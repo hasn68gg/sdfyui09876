@@ -152,9 +152,9 @@ router.post("/auth/login", async (req, res) => {
       user: { id: user[0].id, email: user[0].email, name: user[0].name, avatar: user[0].avatar, role: user[0].role, phone: user[0].phone }
     });
   } catch (err) {
-    req.log.error(err);
-    res.status(500).json({ error: "Server error" });
-  }
+  console.error("🔥 LOGIN ERROR FULL:", err);
+  return res.status(500).json({ message: "Server error" });
+}
 });
 
 router.post("/auth/forgot-password", async (req, res) => {
