@@ -6,7 +6,7 @@ import app from "./app";
 import { logger } from "./lib/logger";
 
 const __filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+const __dirname = path.dirname(__filename);
 
 // Serve frontend static files
 app.use(express.static(path.join(__dirname, "../../client/dist")));
