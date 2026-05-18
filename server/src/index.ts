@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../../client/dist")));
 
 // Handle React routes
-app.get("*", (_, res) => {
+app.use((_, res) => {
   res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
 });
 
